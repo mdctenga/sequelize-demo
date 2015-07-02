@@ -1,14 +1,24 @@
 {
   "name": "sequelize-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "sequelize-demo",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mdctenga/sequelize-demo.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdctenga/sequelize-demo/issues"
+  },
+  "homepage": "https://github.com/mdctenga/sequelize-demo",
   "dependencies": {
+    "pg": "^4.4.0",
+    "pg-hstore": "^2.3.2",
     "sequelize": "^3.3.2"
   }
 }
