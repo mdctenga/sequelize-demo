@@ -143,3 +143,44 @@ $ npm start
 ```
 
 After the server starts, `db.sequelize.sync` is invoked, this will automatically synchronize your application with the database. If all goes well your server should have a bunch of SQL queries that will create all of your tables for you!
+
+# Making models
+After successfully creating your express application, create a route to allow users to create new `Users` in the database.
+
+## Get user input
+For this example, install the `body-parser` module, set it up to parse _JSON_ payloads.
+
+```
+$ npm install body-parser --save
+```
+
+## Models
+After you have set up the `body-parser`, add another line of code that requires your `User` model from your `db` object.
+
+```
+var User = db.User;
+```
+This will let you access the `User` model so that you can create and read from your database.
+
+### Creating users
+```
+app.post('/users', function (req, res) {
+  User.create({ username: req.body.username })
+    .then(function (user) {
+      res.json(user);
+    });
+});
+```
+
+### Getting users
+```
+app.get('/users', function(req, res) {
+  User.findAll()
+    .then(function (users) {
+      res.json(users);
+    });
+});
+```
+
+## Create some users!
+Using Postman, send POST requests and GET requests to create and fetch users added to your database.
